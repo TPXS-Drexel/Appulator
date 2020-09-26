@@ -32,23 +32,23 @@ jobs:
           echo Add other actions to build,
           
           echo test, and deploy your project.
-      - name: Setup Rust
+      #- name: Setup Rust
         # You may pin to the exact commit or the version.
         # uses: ATiltedTree/setup-rust@e94eb0c2d345d07cc59ad496f20a034bb13a97f6
-        uses: ATiltedTree/setup-rust@v1.0.4
-        with:
+        #uses: ATiltedTree/setup-rust@v1.0.4
+        #with:
           # The version to install
-          rust-version: 1.0.4
+          #rust-version: 1.0.4
           # The components to install
           #components: # optional
           # The targets to install
           #targets: # optional
-      - name: setup-flutter
+      #- name: setup-flutter
         # You may pin to the exact commit or the version.
         # uses: takuyaohashi/setup-flutter@13485697cd6c4f77aca5364e1bad821fe627ad13
-        uses: takuyaohashi/setup-flutter@v1
-        with:
+        #uses: takuyaohashi/setup-flutter@v1
+        #with:
           # The Flutter version to download
           #flutter-version: # optional, default is latest
           # The Flutter channel to download
-          channel: # optional, default is stable    
+          #channel: # optional, default is stable    
