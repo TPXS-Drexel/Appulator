@@ -1,50 +1,44 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import {VictoryLine, VictoryChart, VictoryLabel } from 'victory-native';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { StyleSheet, Text, View, Button, AccessibilityInfo } from 'react-native';
+import {VictoryLine, VictoryChart, VictoryTooltip, VictoryVoronoiContainer, VictoryLabel } from 'victory-native';
 
-function arrowRight(){
-  alert("Working");
-}
+export default class App extends Component{
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Test</Text>
-      <StatusBar style="auto" />
-      <VictoryChart>
-        <VictoryLine
-          style={{
-            data: { stroke: "#c43a31" },
-            parent: { border: "2px solid #ccc"}
-          }}
-          interpolation="natural"
-          domain={{x: [-5, 5], y: [-5, 5]}}
-          data={[
-            { x: -2, y: -2 },
-            { x: -1, y: 2 },
-            { x: 0, y: 0 },
-            { x: 1, y: -2 },
-            { x: 2, y: 2 }
-          ]}
-        />
-      </VictoryChart>
+  handleClick = () => {
+  }
 
-      <Button
-        onPress={arrowRight()}
-        title="Right"
-        color="#808080"
-        accessibilityLabel=""
-      />
+  render(){
 
-      <Button
-        onPress={arrowRight()}
-        title="Left"
-        color="#808080"
-        accessibilityLabel=""
-      />
-    </View>
-  );
+    return (
+      <View style={styles.container}>
+        <Text>Test</Text>
+        <StatusBar style="auto" />
+
+        <VictoryChart domainPadding={{ y: 10 }}
+          containerComponent={
+            <VictoryVoronoiContainer name="test"
+              labels={({ datum }) => `${datum.x}, ${datum.y}`}
+            />
+          }>
+
+          <VictoryLine
+            y={(datum) => 2* datum.x + 5}
+            
+          />
+        </VictoryChart>
+
+        <Button
+          onPress={this.handleClick}
+          title="Test"
+          color="#841584"
+          accessibilityLabel=""
+        ></Button>
+
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
